@@ -97,19 +97,21 @@ const HomeScreen = () => {
 
   const onClear = () => {
     setDisplayResults(false);
-    setGender("male");
+    setGender("");
     setError(false);
     setFinalRetirementDate(null);
     setBirthday(new Date());
   };
 
   return (
-    <ScrollView>
-      <StyledView className="bg-green-100 pt-20 px-10 items-center">
+    <StyledScrollView
+      className={`${displayResults ? "" : "flex"} bg-green-100`}
+    >
+      <StyledView className="mt-16 px-10 items-center">
         <StyledText className="text-2xl text-blue-700 text-center font-bold">
           Llogarit moshën e daljes në pension
         </StyledText>
-        <StyledView className="p-10 mt-20 bg-white w-4/5">
+        <StyledView className="p-10 mt-10 bg-white w-4/5">
           <StyledView className="items-center">
             <StyledText className="font-semibold text-lg">Gjinia</StyledText>
             <RadioInput
@@ -175,20 +177,22 @@ const HomeScreen = () => {
           )}
         </StyledView>
         {displayResults && (
-          <StyledView className="mt-20 mb-5 border border-dashed rounded bg-white p-10">
-            <StyledText className="text-center text-xl mb-10">
+          <StyledView className="p-5 bg-white mt-10 mb-5 rounded-xl">
+            <StyledText className="text-center font-bold text-xl text-blue-500 mb-3">
               Rezultati
             </StyledText>
             <View>
               <Text>Del në pension në {finalRetirementDateFormatted}</Text>
-              <Text>Mosha e daljes në pension: {ageOfRetirement}</Text>
+              <StyledText className="py-2">
+                Mosha e daljes në pension: {ageOfRetirement}
+              </StyledText>
               <Text>Eksperienca e punës: {workExperienceYears}</Text>
             </View>
           </StyledView>
         )}
         <StatusBar style="auto" />
       </StyledView>
-    </ScrollView>
+    </StyledScrollView>
   );
 };
 

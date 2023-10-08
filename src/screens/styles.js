@@ -4,8 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     // flex: 1,
     backgroundColor: "rgb(220 252 231)",
-    paddingTop: 80,
-    paddingHorizontal: 10,
-    alignItems: "center",
+    // paddingHorizontal: 10,
+    // alignItems: "center",
   },
 });
